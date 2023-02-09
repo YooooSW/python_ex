@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+[
+  {
+    "name": "\ud64d\uae38\ub3d9",
+    "address": "\uad11\uc8fc",
+    "tel": "111-2222-3333",
+    "email": "hong@naver.com"
+  },
+  {
+    "name": "\uae40\ub180\ubd80",
+    "address": "\ubd80\uc0b0",
+    "tel": "111-2222-3333",
+    "email": "kim@naver.com"
+  }
+=======
+[
+  {
+    "name": "\ud64d\uae38\ub3d9",
+    "address": "\uad11\uc8fc",
+    "tel": "111-2222-3333",
+    "email": "hong@naver.com"
+  },
+  {
+    "name": "\uae40\ub180\ubd80",
+    "address": "\ubd80\uc0b0",
+    "tel": "111-2222-3333",
+    "email": "kim@naver.com"
+  }
+>>>>>>> origin/master
+]

@@ -48,7 +48,7 @@ while True:
             print(list(cardbook.cards.keys()))
             page = int(input('page number >>> '))
             card = cardbook.cards[page]
-            print(card)      
+            print(card)
     elif menu == '5':
         if cardbook == None:
             print('cardbook 생성한 후 가능합니다.')

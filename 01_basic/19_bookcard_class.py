@@ -2,7 +2,7 @@
 # 데이터 구조는 리스트를 이용
 # 일련번호(중복x), 책이름, 출판사, .....
 # 1.저장 2.수정 3.삭제 4.리스트 5.검색 6.종료(Q)
-import bookcard as bc
+import namebook as bc
 
 bookcard = None
 
@@ -14,7 +14,7 @@ while True:
 >>> ''')
     if menu == '1':
         if bookcard == None:
-            print('bookcard 생성한 후 추가 가능합니다.')
+            bookcard = bc.BookCard(input('타이틀을입력하세요'))
         else:
             num = input('일련번호 >>> ')
             name = input('책이름 >>> ')
@@ -39,7 +39,7 @@ while True:
         if bookcard == None:
             print('bookcard 생성한 후 추가 가능합니다.')
         else:
-            print(list(bookcard.books.keys()))
+            print(list(bookcard.cards.keys()))
             number = int(input('page number >>> '))
             book = bookcard.cards[number]
             print(book)

@@ -1,24 +1,18 @@
-# 클래스 Card,  CardBook
-# --------------------------------------------------------------------------------
-# 1.CardBook 생성 2.Card 추가 3.Card 삭제 4.Card 내용 보기 5.전체목록 보기 6.종료
-# --------------------------------------------------------------------------------
-# >>> ''')
-
-import namecard as nc
-import pickle, os
+import namecard as nc, os
+import pickle
 
 path = os.path.dirname(__file__)
 # print(__file__)
 # print(path)
 cardbook = None
 
-with open('01_basic/cardbook.pickle', 'rb') as f:
+with open(path+'/cardbook1.pickle', 'rb') as f:
     cardbook = pickle.load(f)
 
 while True:
     menu = input('''
 --------------------------------------------------------------------------------
-1.CardBook 생성 2.Card 추가 3.Card 삭제 4.Card 내용 보기 5.전체목록 보기 6.종료
+1.CardBook 생성 2.Card추가 3.Card 삭제 4.Card 내용 보기 5.전체목록 보기 6.종료
 --------------------------------------------------------------------------------
 >>> ''')
     if menu == '1':
@@ -27,18 +21,22 @@ while True:
         else:
             print('생성된 cardbook이 존재합니다.')
     elif menu == '2':
-        if cardbook == None:
-            print('cardbook 생성한 후 추가 가능합니다.')
-        else:
+        try:
             name = input('이름을 입력하세요 >>> ')
             address = input('주소를 입력하세요 >>> ')
             tel = input('전화번호를 입력하세요 >>> ')
             email = input('이메일을 입력하세요 >>> ')
             card = nc.Card(name,address,tel,email)
             cardbook.add_card(card)
+        except IndexError:
+            print('인덱스 오류')
+        except Exception as e:
+            print(e)
+            print('cardbook 생성한 후 가능합니다.')
+        
     elif menu == '3':
         if cardbook == None:
-            print('cardbook 생성한 후 추가 가능합니다.')
+            print('cardbook 생성한 후 가능합니다.')
         else:
             print(list(cardbook.cards.keys()))
             page = int(input('page number >>> '))
@@ -46,7 +44,7 @@ while True:
             print(card, '-> 삭제')
     elif menu == '4':
         if cardbook == None:
-            print('cardbook 생성한 후 추가 가능합니다.')
+            print('cardbook 생성한 후 가능합니다.')
         else:
             print(list(cardbook.cards.keys()))
             page = int(input('page number >>> '))
@@ -68,5 +66,5 @@ while True:
         break
 
 
-with open('01_basic/cardbook.pickle','wb') as f:
+with open('01_basic/cardbook1.pickle','wb') as f:
     pickle.dump(cardbook,f)

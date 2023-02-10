@@ -40,7 +40,11 @@ while True:
             print('bookcard 생성한 후 추가 가능합니다.')
         else:
             print(list(bookcard.cards.keys()))
+<<<<<<< HEAD
             number = int(input('book number >>> '))
+=======
+            number = int(input('page number >>> '))
+>>>>>>> cf71267aeeefc595e33a69616c2c05669759e05a
             book = bookcard.cards[number]
             print(book)
 

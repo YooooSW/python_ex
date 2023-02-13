@@ -9,8 +9,9 @@
 시작 - 프로그램 시작시 데이터 파일을 로드합니다.
 '''
 import pickle, os
-from Account import Account    #Account.deposit()
-# import Account               #Account.Account.deposit()
+from Account import Account ,str2int    #Account.deposit()
+# import Account               Account.Account.deposit()
+
 
 path = os.path.dirname(__file__)
 account_list = []
@@ -29,27 +30,63 @@ while True:
     menu = input(display)
     if menu == '1':
         name = input('이름 >>> ')
-        balance = ''
-        while not balance.isdecimal():
-            balance = input('입금금액 >>> ')
-        balance = int(balance)
+        balance = str2int('입금 금액을 입력하세요')
         account_list.append(Account(name,balance))
-        print('-'*10)
+        print('-'*50)
         for item in account_list:
             print(item)
     elif menu == '2':
-        account_number = input('입금할 계좌번호 >>> ')
-        desposit = input('입금금액 >>> ')
-        print(deposit.displayinfo())
+        account_num = str2int('계좌번호를 입력하세요')
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                amount = int(input('입금할 금액을 입력하세요 >>> '))
+                acc.deposit(amount)
+                break
+        if check == 0:
+            print('계좌번호가 없습니다.')
+    
     elif menu == '3':
-        account_number = input('출금할 계좌번호 >>> ')
-        withdraw = input('출금금액 >>> ')
+        account_num = str2int('계좌번호를 입력하세요')
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                amount = int(input('출금할 금액을 입력하세요 >>> '))
+                acc.withdraw(amount)
+                break
+        if check == 0:
+            print('계좌번호가 없습니다.')
     elif menu == '4':
-        pass
+        aaccount_num = str2int('계좌번호를 입력하세요')
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                print(acc.total_log)
+                break
+        if check == 0:
+            print('계좌번호가 없습니다.')
     elif menu == '5':
-        pass
+        account_num = str2int('계좌번호를 입력하세요')
+        check = 0
+        for acc in account_list:
+            if acc.account_number == account_num:
+                check = 1
+                print(acc)
+                break
+        if check == 0:
+            print('계좌번호가 없습니다.')
     elif menu == '6':
-        pass
+        key = input('정렬 키(입력값:name,balance,account_number)>>> ')
+        sort = bool(input('오름차순(enter),내림차순(1) >>> '))
+        if key in ('name','balance','account_number'):
+            sorted_list = sorted(account_list,reverse=sort,key=eval(f'lambda x:x.{key}'))
+        else:
+            sorted_list = sorted(account_list,reverse=sort)
+        for acc in sorted_list:
+            print(acc)
     elif menu == '7':
         print('종료')
         break

@@ -40,7 +40,11 @@ class Account:
     def __str__(self):
         return f'예금주:{self.name}, 계좌번호:{self.account_number}, 잔고:{self.balance}'
 
-
+def str2int(msg):
+        data = ''
+        while not data.isdecimal():
+            data = input(msg + '>>> ')
+        return int(data)
 
 # print(Account.get_account_num())
 # a = Account('홍길동',2000)

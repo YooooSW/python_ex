@@ -71,7 +71,6 @@ def some_books(number):
     for item in cur.fetchmany(number):
         print(item)
     conn.close()
-    pass
 
 # number = int(input('출력할 데이터 갯수 >>> '))
 # some_books(number)

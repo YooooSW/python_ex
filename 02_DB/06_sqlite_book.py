@@ -20,7 +20,7 @@ while True:
     elif menu == '4':
         print(book.all_books())
     elif menu == '5':
-        print(book.some_books())
+        print(book.big_books())
     elif menu == '6':
         print('프로그램 종료')
         break

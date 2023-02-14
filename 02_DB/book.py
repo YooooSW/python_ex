@@ -50,7 +50,6 @@ def insert_books():
     conn.close()
 
 # insert_books()
-
 # 전체데이터 출력 함수
 def all_books():
     conn = sqlite3.connect(path + '/example.db')

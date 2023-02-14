@@ -31,11 +31,11 @@ while True:
         except Exception as e:
             print(e)
     elif menu == '2':
-        pass
+        namecard.update_card()
     elif menu == '3':
-        pass
+        namecard.delete_card()
     elif menu == '4':
-        pass
+        namecard.search_card()
     elif menu == '5':
         namecard.list_card()
     elif menu == '6':

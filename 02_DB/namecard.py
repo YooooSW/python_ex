@@ -77,26 +77,31 @@ def delete_card():
 def search_card():
     with oracledb.connect('SCOTT/TIGER@localhost:1521/xe') as conn:
         with conn.cursor() as cur:
-            pass
+            cardid_list = []
+            for item in cur.execute('select * from namecard'):
+                cardid_list.append(item[0])
+            print(cardid_list)
+            key = int(input('검색할 등록번호 >>> '))
+            cur.execute('select * from namecard where cardid=:1',(key,))
+            print(cur.fetchone())
 
 # 명함리스트
 def list_card():
     with oracledb.connect('SCOTT/TIGER@localhost:1521/xe') as conn:
         with conn.cursor() as cur:
-            sql = 'select * from namecard'
-            cur.execute(sql)
-            for item in cur.fetchall():
-                print(item)
-                conn.commit()
+            key = input('정렬 키(name,tel,address,email) >>> ')
+            sort = input('오름차순(asc),내림차순(desc) >>> ')
+            if key in ('name','tel','address','email') and sort in ('asc','desc'):
+                sql = f'select * from namecard order by {key} {sort}'
+                for item in cur.execute(sql):
+                    print(f'등록번호:{item[0]},이름:{item[1]},전화번호:{item[3]},이메일:{item[4]},주소:{item[2]}')
 
 # print(__name__)
-if __name__ == '__main__':
-    create_table()
+# if __name__ == '__main__':
+    # create_table()
     # insert_card()
     # update_card()
     # delete_card()
     # search_card()
     # list_card()
-
-
 

@@ -97,11 +97,11 @@ def list_card():
                     print(f'등록번호:{item[0]},이름:{item[1]},전화번호:{item[3]},이메일:{item[4]},주소:{item[2]}')
 
 # print(__name__)
-# if __name__ == '__main__':
-    # create_table()
+if __name__ == '__main__':
+    create_table()
     # insert_card()
     # update_card()
     # delete_card()
     # search_card()
-    # list_card()
+    list_card()
 

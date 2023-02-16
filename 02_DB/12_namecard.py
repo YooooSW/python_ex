@@ -1,5 +1,5 @@
 '''	명함관리프로그램
-	데이터는 오라클저장 tablename : namecard
+	데이터는 오라클저장 tablename : nc
 			       - cardid   (숫자값,기본키,자동증가)
 			       - name
 			       - address
@@ -16,8 +16,8 @@
                - 명함리스트: list_card()
 '''
 
-import namecard
-
+import namecard as nc, sys
+nc.create_table()
 while True:
     display = ('''
 -------------------------------------------------------------------------
@@ -26,21 +26,18 @@ while True:
 >>> ''')
     menu = input(display)
     if menu == '1':
-        try:
-            namecard.insert_card()
-        except Exception as e:
-            print(e)
+        nc.insert_card()
     elif menu == '2':
-        namecard.update_card()
+        nc.update_card()
     elif menu == '3':
-        namecard.delete_card()
+        nc.delete_card()
     elif menu == '4':
-        namecard.search_card()
+        nc.search_card()
     elif menu == '5':
-        namecard.list_card()
+        nc.list_card()
     elif menu == '6':
         print('종료')
-        break
+        sys.exit() # break
     else:
         print('메뉴를 잘못 선택하셨습니다.')
 

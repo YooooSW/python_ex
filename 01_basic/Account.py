@@ -45,14 +45,3 @@ def str2int(msg):
         while not data.isdecimal():
             data = input(msg + '>>> ')
         return int(data)
-
-# print(Account.get_account_num())
-# a = Account('홍길동',2000)
-# a.displayinfo()
-# a.deposit(5000)
-# a.displayinfo()
-# a.withdraw(4000)
-# a.displayinfo()
-# a.withdraw(4000)
-# a.displayinfo()
-# print(a.total_log)

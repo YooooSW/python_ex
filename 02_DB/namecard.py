@@ -15,7 +15,7 @@ def create_table():
     with oracledb.connect('SCOTT/TIGER@localhost:1521/xe') as conn:
         with conn.cursor() as cur:
             sql = '''
-            create table namecard(
+            create table namecards(
                 cardid number primary key,
                 name varchar2(50),
                 address varchar2(100),
@@ -103,5 +103,5 @@ if __name__ == '__main__':
     # update_card()
     # delete_card()
     # search_card()
-    list_card()
+    # list_card()
 

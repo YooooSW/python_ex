@@ -115,14 +115,14 @@ def update_book():
     title = input('수정할 책 제목 >>> ')
     check = 1
     while check:
-        col = input('수정할 컬럼이름(publisher_data,publisher,pages,recommend) >>> ')
-        if col in ('publisher_data','publisher','pages','recommend'):
+        col = input('수정할 컬럼이름(published_date,publisher,pages,recommend) >>> ')
+        if col in ('published_date','publisher','pages','recommend'):
             check = 0
     value = input(f'{col}컬럼 수정할 내용 입력 >>> ')
-    sql = f'update books set {col} = ? where title = ?'
+    sql = f'update books set {col} = ? where title = ? '
     cur.execute(sql,(value,title))
     conn.commit()
-    conn.close()
+    conn.close()    
 
 # update_book()
 

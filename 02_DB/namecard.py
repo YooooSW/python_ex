@@ -98,9 +98,9 @@ def list_card():
 
 # print(__name__)
 if __name__ == '__main__':
-    create_table()
+    # create_table()
     # insert_card()
-    # update_card()
+    update_card()
     # delete_card()
     # search_card()
     # list_card()

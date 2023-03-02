@@ -29,7 +29,7 @@ for item in data:
 
 data = soup.select('td.title')
 for item in data:
-    contents.append(item.get_text())
+    contents.append(item.get_text(strip=True))
 # print(contents)
 
 items = list(zip(num,title,score,contents))

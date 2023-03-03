@@ -22,5 +22,15 @@ gugun = driver.find_elements(By.CSS_SELECTOR,'ul.gugun_arae_box > li')
 sido[1].click()
 time.sleep(5)
 
+page = driver.page_source
+
+soup = BeautifulSoup(page,'html.parser')
+item = soup.select('ul.quickSearchResultBoxSidoGugun li')
+for li in item:
+    print(li.find('strong').string)
+    print(li.find('p').string)
+    print('----------------------------')
+
+
 # print(soup.select('li.quickResultLstCon strong'))
 # print(soup.select('li.quickResultLstCon p.result_details'))

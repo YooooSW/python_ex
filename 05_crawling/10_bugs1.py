@@ -7,16 +7,15 @@ soup = BeautifulSoup(re, 'html.parser')
 title = []
 artist = []
 
-data = soup.select('p.title a')
-# print(data)
+data = soup.select('p.title > a')
 for item in data:
-    title.append(item.string.strip())
-# print(title)
+    print(item.string)
+    title.append(item.string)
 
-data = soup.select('p.artist a')
-# print(data)
+data = soup.select('p.artist > a')
 for item in data:
+    print(item.string)
     artist.append(item.string.strip())
-# print(artist)
-items = list(zip(title,artist))
-print(items)
+
+result = list(zip(title,artist))
+print(result)

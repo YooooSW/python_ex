@@ -9,5 +9,7 @@ data = soup.select('strong.title')
 
 # print(data)
 for item in data:
-    title.append(item.string.strip())
-print(title)
+    # title.append(item.string.strip())
+    print(item.string)
+# print(title)
+
